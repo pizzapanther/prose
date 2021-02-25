@@ -32,7 +32,7 @@ class DotenvCommand(ConfigCommand):
             stream.write("{}={}\n".format(key, value))
 
         stream.seek(0)
-        load_dotenv(stream=stream)
+        load_dotenv(stream=stream, override=True)
 
     def handle(self):
         self.set_envs()

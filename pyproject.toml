@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "trashy-poetry"
-version = "0.1.0"
+version = "0.2.0"
 description = "Poetry for everyday use"
 authors = ["Paul Bailey <paul@neutron.studio>"]
 license = "MIT"
@@ -23,7 +23,7 @@ prose = "prose.cli:main"
 
 [tool.prose.env]
 TEST_ENV = "hello world"
-TEST_PATH = "${PATH}:/narf"
+PATH = "${PATH}:/narf"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
