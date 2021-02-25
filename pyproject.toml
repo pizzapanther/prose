@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "prose"
+version = "0.1.0"
+description = "Poetry for everyday use"
+authors = ["Paul Bailey <paul@neutron.studio>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+poetry = "^1.1.4"
+python-dotenv = "^0.15.0"
+
+[tool.poetry.dev-dependencies]
+yapf = "^0.30.0"
+
+[tool.poetry.scripts]
+prose = "prose.cli:main"
+
+[tool.prose.env]
+TEST_ENV = "hello world"
+TEST_PATH = "${PATH}:/narf"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poe.tasks]
+check_format = "yapf -rpd prose/"
+format = "yapf -rpi -vv prose/"
