@@ -2,4 +2,41 @@
 
 An unpoetic version of [Poetry](https://python-poetry.org/).
 
+While the Poetry package is elegant and reduces a Python developers burden, every day usage has some small annoyances. Some of these things could be fixed but have been considered out of scope and unpoetic.
 
+Prose is made to be the everyday version of Poetry and little bit more trashy. But the trashiness serves those well in the dirty jobs of life. Prose is wrapper around Poetry so all commands and APIs should function the same with the addition of more features.
+
+## Installation
+
+```
+pip install prose
+```
+
+## Usage
+
+See [Poetry Docs](https://python-poetry.org/docs/). All commands and APIs function the same except for the additional featurs documented.
+
+## Features
+
+### Hardcoded Environmental Variables
+
+Inject environmental variables into the `run` and `shell` commands by hard coding them into you `pyproject.toml` file.
+
+**Example:**
+
+```
+[tool.prose.env]
+TEST_ENV = "hello world"
+TEST_PATH = "${PATH}:/narf"
+```
+
+Any variables set in the `tool.prose.env` section of your toml file will be injected into the environment for you.
+
+### Load DotEnv Files
+
+*coming soon*
+
+
+### Shortcut Commands
+
+*coming soon*
