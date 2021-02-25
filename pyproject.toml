@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "trashy-poetry"
-version = "0.3.1"
+version = "0.4.0"
 description = "Poetry for everyday use"
 authors = ["Paul Bailey <paul@neutron.studio>"]
 license = "MIT"
@@ -11,9 +11,10 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.6"
+python = ">=3.6,<4.0"
 poetry = "^1.1.4"
 python-dotenv = "^0.15.0"
+poethepoet = "^0.10.0"
 
 [tool.poetry.dev-dependencies]
 yapf = "^0.30.0"

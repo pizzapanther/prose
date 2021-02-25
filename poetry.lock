@@ -273,6 +273,18 @@ python-versions = "*"
 testing = ["nose", "coverage"]
 
 [[package]]
+name = "poethepoet"
+version = "0.10.0"
+description = "A task runner that works well with poetry."
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+pastel = ">=0.2.0,<0.3.0"
+tomlkit = ">=0.6.0,<1.0.0"
+
+[[package]]
 name = "poetry"
 version = "1.1.4"
 description = "Python dependency management and packaging made easy."
@@ -488,8 +500,8 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 
 [metadata]
 lock-version = "1.1"
-python-versions = ">=3.6"
-content-hash = "eeb7e790be639fae4ec0bb08c25aa8ea58df7e73594ec89f80934e285c05d88d"
+python-versions = ">=3.6,<4.0"
+content-hash = "a62e3d9d3352d7cda5603d840319dce951080568c26824902bf8b2c570748ad3"
 
 [metadata.files]
 appdirs = [
@@ -658,6 +670,10 @@ pexpect = [
 pkginfo = [
     {file = "pkginfo-1.7.0-py2.py3-none-any.whl", hash = "sha256:9fdbea6495622e022cc72c2e5e1b735218e4ffb2a2a69cde2694a6c1f16afb75"},
     {file = "pkginfo-1.7.0.tar.gz", hash = "sha256:029a70cb45c6171c329dfc890cde0879f8c52d6f3922794796e06f577bb03db4"},
+]
+poethepoet = [
+    {file = "poethepoet-0.10.0-py3-none-any.whl", hash = "sha256:6fb3021603d4421c6fcc40072bbcf150a6c52ef70ff4d3be089b8b04e015ef5a"},
+    {file = "poethepoet-0.10.0.tar.gz", hash = "sha256:70b97cb194b978dc464c70793e85e6f746cddf82b84a38bfb135946ad71ae19c"},
 ]
 poetry = [
     {file = "poetry-1.1.4-py2.py3-none-any.whl", hash = "sha256:a0fd73af8831f8d8e910fa9c58af71194ed2d17e43e04cbf5db3087305027d38"},

@@ -47,6 +47,12 @@ Any variables set in the `tool.prose.env` section of your toml file will be inje
 *coming soon*
 
 
-### Shortcut Commands
+### Task Runner
 
-*coming soon*
+Prose includes [Poe the Poet](https://github.com/nat-n/poethepoet) by default. Poe the Poet lets you create shortcuts to common tasks such as shell scripts and Python functions. The usage and API functions as documented except for the addition of the `poe` shortcut.
+
+`prose run poe [options] task [task_args]`
+
+can also be run as
+
+`prose poe [options] task [task_args]`
