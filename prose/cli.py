@@ -1,4 +1,5 @@
 from io import StringIO
+import os
 
 from dotenv import load_dotenv
 from poetry.console.application import Application
@@ -36,6 +37,7 @@ class DotenvCommand(ConfigCommand):
 
     def handle(self):
         self.set_envs()
+        os.environ['PROSE_PROJECT_HOME'] =  str(self.application.poetry.pyproject.file.path.parent)
         return super().handle()
 
 

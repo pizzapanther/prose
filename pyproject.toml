@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "trashy-poetry"
-version = "0.2.0"
+version = "0.3.0"
 description = "Poetry for everyday use"
 authors = ["Paul Bailey <paul@neutron.studio>"]
 license = "MIT"
