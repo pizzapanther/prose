@@ -1,11 +1,14 @@
 [tool.poetry]
-name = "prose"
+name = "trashy-poetry"
 version = "0.1.0"
 description = "Poetry for everyday use"
 authors = ["Paul Bailey <paul@neutron.studio>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/pizzapanther/prose"
+packages = [
+    { include = "prose" }
+]
 
 [tool.poetry.dependencies]
 python = ">=3.6"

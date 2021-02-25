@@ -9,7 +9,7 @@ Prose is made to be the everyday version of Poetry and little bit more trashy. B
 ## Installation
 
 ```
-pip install prose
+pip install trashy-poetry
 ```
 
 ## Usage
