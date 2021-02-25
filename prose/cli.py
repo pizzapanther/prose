@@ -36,8 +36,8 @@ class DotenvCommand(ConfigCommand):
         load_dotenv(stream=stream, override=True)
 
     def handle(self):
-        self.set_envs()
         os.environ['PROSE_PROJECT_HOME'] =  str(self.application.poetry.pyproject.file.path.parent)
+        self.set_envs()
         return super().handle()
 
 
