@@ -1,7 +1,7 @@
 from io import StringIO
 import os
 
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 from clikit.ui.components import Paragraph
 from clikit.api.args.format.args_format import NoSuchOptionException
 from cleo import option
@@ -42,7 +42,9 @@ class DotenvCommand(ConfigCommand):
         load_dotenv(stream=stream, override=True)
 
         # load from env from .env
-        load_dotenv(override=True)
+        envpath = find_dotenv(usecwd=True)
+        if envpath:
+            load_dotenv(envpath, override=True)
 
         envs = self.option("env")
         for env in envs:
