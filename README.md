@@ -54,6 +54,11 @@ Any variables set in the `tool.prose.env` section of your toml file will be inje
 
 ### Load DotEnv Files
 
+### Default DotEnv Files
+
+Prose loads `.env` files if it finds it in the current working directory.
+
+## Custom DotEnv Files
 Prose allows you to add custom `.env` files with a command line switch for the `poe`, `run`, and `shell` commands.
 
 ```
