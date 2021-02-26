@@ -39,7 +39,7 @@ class DotenvCommand(ConfigCommand):
         load_dotenv(stream=stream, override=True)
 
     def handle(self):
-        os.environ['PROSE_PROJECT_HOME'] =  str(self.application.poetry.pyproject.file.path.parent)
+        os.environ['PROSE_PROJECT_HOME'] = str(self.application.poetry.pyproject.file.path.parent)
         self.set_envs()
         return super().handle()
 
@@ -48,11 +48,14 @@ class ProseRun(DotenvCommand, RunCommand):
     pass
 
 
-class ProsePoe(DotenvCommand, RunCommand):
+class ProsePoe(ProseRun):
     name = "poe"
     description = "task runner using poethepoet module"
 
     def handle(self):
+        os.environ['PROSE_PROJECT_HOME'] = str(self.application.poetry.pyproject.file.path.parent)
+        self.set_envs()
+
         args = self.argument("args")
         return self.env.execute("poe", *args)
 
