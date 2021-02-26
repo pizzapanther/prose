@@ -28,6 +28,16 @@ poetry shell -> prose shell
 
 ## Features
 
+### Task Runner
+
+Prose includes [Poe the Poet](https://github.com/nat-n/poethepoet) by default. Poe the Poet lets you create shortcuts to common tasks such as shell scripts and Python functions. The usage and API functions the same as documented except for the addition of the `poe` shortcut.
+
+`prose run poe [options] task [task_args]`
+
+can also be run as
+
+`prose poe [options] task [task_args]`
+
 ### Hardcoded Environmental Variables
 
 Inject environmental variables into the `run` and `shell` commands by hard coding them into you `pyproject.toml` file.
@@ -60,13 +70,3 @@ prose poe -e path/custom.env mycommand
 ```
 
 *Note: When using the `run` and `poe` commands, the `-e` and `--env` options must be used before your command arguments*
-
-### Task Runner
-
-Prose includes [Poe the Poet](https://github.com/nat-n/poethepoet) by default. Poe the Poet lets you create shortcuts to common tasks such as shell scripts and Python functions. The usage and API functions the same as documented except for the addition of the `poe` shortcut.
-
-`prose run poe [options] task [task_args]`
-
-can also be run as
-
-`prose poe [options] task [task_args]`
