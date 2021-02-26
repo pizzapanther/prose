@@ -63,7 +63,7 @@ prose poe -e path/custom.env mycommand
 
 ### Task Runner
 
-Prose includes [Poe the Poet](https://github.com/nat-n/poethepoet) by default. Poe the Poet lets you create shortcuts to common tasks such as shell scripts and Python functions. The usage and API functions as documented except for the addition of the `poe` shortcut.
+Prose includes [Poe the Poet](https://github.com/nat-n/poethepoet) by default. Poe the Poet lets you create shortcuts to common tasks such as shell scripts and Python functions. The usage and API functions the same as documented except for the addition of the `poe` shortcut.
 
 `prose run poe [options] task [task_args]`
 
