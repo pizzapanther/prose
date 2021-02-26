@@ -3,6 +3,8 @@ import os
 
 from dotenv import load_dotenv
 from clikit.ui.components import Paragraph
+from clikit.api.args.format.args_format import NoSuchOptionException
+from cleo import option
 from poetry.console.application import Application
 from poetry.console.commands.run import RunCommand
 from poetry.console.commands.shell import ShellCommand
@@ -36,7 +38,56 @@ class DotenvCommand(ConfigCommand):
             stream.write("{}={}\n".format(key, value))
 
         stream.seek(0)
+        # load env from toml config
         load_dotenv(stream=stream, override=True)
+
+        # load from env from .env
+        load_dotenv(override=True)
+
+        envs = self.option("env")
+        for env in envs:
+            load_dotenv(env, override=True)
+
+    def argument(self, key=None, original=False):
+        args = super().argument(key=key)
+
+        if key == "args" and not original:
+            envs, arg_begin = self.extract_env(args)
+            return args[arg_begin:]
+
+        return args
+
+    def extract_env(self, original):
+        envs = []
+        arg_begin = 0
+
+        # -enarf; -e narf; --env narf; --env=narf
+        for i, a in enumerate(original):
+            if a == "-e" or a == "--env":
+                envs.append(original[i + 1])
+                arg_begin = i + 2
+
+            elif a.startswith("-e"):
+                envs.append(a.replace("-e", ""))
+                arg_begin = i + 1
+
+            elif a.startswith("--env="):
+                envs.append(a.replace("--env", ""))
+                arg_begin = i + 1
+
+        return envs, arg_begin
+
+    def option(self, key=None):
+        try:
+            return super().option(key=key)
+
+        except NoSuchOptionException:
+            if key == 'env':
+                args = self.argument("args", original=True)
+                envs, arg_begin = self.extract_env(args)
+                return envs
+
+            raise
 
     def handle(self):
         os.environ['PROSE_PROJECT_HOME'] = str(self.application.poetry.pyproject.file.path.parent)
@@ -61,7 +112,7 @@ class ProsePoe(ProseRun):
 
 
 class ProseShell(DotenvCommand, ShellCommand):
-    pass
+    options = [option("env", "e", "Dotenv file to load", multiple=True, flag=False)]
 
 
 class ProseApp(Application):
