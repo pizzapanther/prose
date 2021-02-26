@@ -59,7 +59,7 @@ prose run -e path/custom.env printenv NARF
 prose poe -e path/custom.env mycommand
 ```
 
-*Note: When using the `run` and `poe` the `-e` and `--env` options must be used before your command arguments*
+*Note: When using the `run` and `poe` commands, the `-e` and `--env` options must be used before your command arguments*
 
 ### Task Runner
 
