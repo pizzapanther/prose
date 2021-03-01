@@ -33,13 +33,14 @@ class DotenvCommand(ConfigCommand):
 
     def set_envs(self):
         envs = self.get_prose_config('env')
-        stream = StringIO()
-        for key, value in envs.items():
-            stream.write("{}={}\n".format(key, value))
+        if envs:
+            stream = StringIO()
+            for key, value in envs.items():
+                stream.write("{}={}\n".format(key, value))
 
-        stream.seek(0)
-        # load env from toml config
-        load_dotenv(stream=stream, override=True)
+            stream.seek(0)
+            # load env from toml config
+            load_dotenv(stream=stream, override=True)
 
         # load from env from .env
         envpath = find_dotenv(usecwd=True)
